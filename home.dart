@@ -1,8 +1,9 @@
 import 'dart:io';
-import 'Sing up.dart';
+import 'Login.dart';
+import 'Sign-up.dart';
 
 void main() {
-  home main=new home();
+  home main = new home();
 }
 
 class home {
@@ -19,9 +20,10 @@ class home {
       Sing_up info = new Sing_up();
       info.Sing();
     } else if (number == '2') {
-      print("num $number ddddddd");
+      Login log = new Login();
+      log.login();
     } else if (number == '3') {
-      print("num $number hhhhh");
+      exit(0);
     }
   }
 }
