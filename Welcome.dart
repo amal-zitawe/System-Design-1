@@ -1,14 +1,14 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:intl/intl.dart';
-import 'Home.dart';
 import 'Login.dart';
 import 'SignUp.dart';
+import 'App.dart';
 
 class Welcome {
   welcome() async {
     var user = Login.loginUser;
-    var user2 = SingUp.loginUser;
+    var user2 = SignUp.loginUser;
     print("Welcome Page");
     print('.....................................');
     final datenow = DateTime.now();
@@ -68,8 +68,7 @@ class Welcome {
     if (number == '2') {
       exit(0);
     } else if (number == '1') {
-      Home m = new Home();
-      m.start();
+    App().runWelcome(UserOptions.home);
     } else if (!(number == '1' || number == '2')) {
       print('the input is incorrect');
       stdin.readLineSync();
