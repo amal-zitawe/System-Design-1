@@ -1,9 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:crypt/crypt.dart';
-import 'Home.dart';
-import 'Welcome.dart';
-
+import 'App.dart';
 int count = 0;
 
 class Login {
@@ -26,8 +24,7 @@ class Login {
       }
     }
     if (count == 2) {
-      Home g = new Home();
-      g.start();
+      App().runLogin(UserOptions.home);
     }
     //............................................
     stdout.write("b. Password:");
@@ -35,7 +32,7 @@ class Login {
     if (password != null && password.isEmpty) {
       print("This field is required");
       count++;
-    } else if (password !=null && password.isNotEmpty) {
+    } else if (password != null && password.isNotEmpty) {
       String pattern = r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{6,}$';
       RegExp regExp = RegExp(pattern);
       if (!regExp.hasMatch(password)) {
@@ -44,7 +41,7 @@ class Login {
       }
     }
     if (count == 2) {
-      Home g = new Home();
+      App().runLogin(UserOptions.home);
     }
     //.........................................................
     else if (password!.isNotEmpty && email!.isNotEmpty) {
@@ -57,8 +54,7 @@ class Login {
           if ((d[i]['email'] == '$email') &&
               (d[i]['password'] == '$pHashing')) {
             loginUser = d[i]['email'];
-            Welcome w = new Welcome();
-            w.welcome();
+           App().runLogin(UserOptions.welcome);
             break;
           }
         }
