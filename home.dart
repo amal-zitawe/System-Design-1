@@ -1,14 +1,12 @@
 import 'dart:io';
-import 'Login.dart';
-import 'Sign-up.dart';
+import 'App.dart';
 
 void main() {
-  home main = new home();
+  Home().start();
 }
-
-class home {
-  home() {
-    print("Welcom at Home page");
+class Home {
+  start() {
+    print("Welcome to the Home page");
     print("--------------------------");
     print("Choose one by entering its number:");
     List options = ["1.Sign up", "2.Login", "3.Exit"];
@@ -17,13 +15,13 @@ class home {
     });
     String? number = stdin.readLineSync();
     if (number == '1') {
-      Sing_up info = new Sing_up();
-      info.Sing();
+      App().runHome(UserOptions.signUp);
     } else if (number == '2') {
-      Login log = new Login();
-      log.login();
+      App().runHome(UserOptions.login);
     } else if (number == '3') {
       exit(0);
+    } else if (!(number == 1 || number == 2 || number == 3)) {
+      print('the input is incorrect');
     }
   }
 }
