@@ -1,13 +1,11 @@
 import 'dart:io';
 import 'Home.dart';
-import 'Login.dart';
 import 'SignUp.dart';
-import 'Welcome.dart';
 
 // Coordinator
 class App {
-  late Welcome welcome = Welcome();
-  late Login login = Login();
+  // late Welcome welcome = Welcome();
+  // late Login login = Login();
   late SignUp signUp = new SignUp();
   late Home home = new Home();
 
@@ -15,20 +13,12 @@ class App {
     switch (x) {
       // exit app
       case UserOptions.exit:
-        {
-          exit(0);
-        }
+        exit(0);
       // run signUp
       case UserOptions.signUp:
-        {
-          signUp.Sing();
-        }
         break;
       // run login
       case UserOptions.login:
-        {
-          login.login();
-        }
         break;
     }
   }
@@ -37,15 +27,10 @@ class App {
     switch (x) {
       //run home
       case UserOptions.home:
-        {
-          home.start();
-        }
+        home.start();
         break;
       //run welcome
       case UserOptions.welcome:
-        {
-          welcome.welcome();
-        }
         break;
     }
   }
@@ -58,9 +43,6 @@ class App {
         }
         break;
       case UserOptions.welcome:
-        {
-          welcome.welcome();
-        }
         break;
     }
   }
